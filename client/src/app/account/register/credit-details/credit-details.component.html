@@ -1,0 +1,21 @@
+<div class="bg-light py-5 text-uppercase font-weight-bold d-flex justify-content-center" style="padding: 1.20em;">
+  Detales do seu Empréstimo
+</div>
+<div class="p-4">
+
+  <ul class="list-unstyled mb-4">
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Status</strong>
+      <strong class="alert alert-success">{{creditDetails.status}}</strong>
+    </li>
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Valor dos Juros</strong>
+      <strong>{{creditDetails.valorJuros | currency : 'BRL'}}</strong>
+    </li>
+    <li class="d-flex justify-content-between py-3 border-bottom">
+      <strong class="text-muted">Valor Total</strong>
+      <strong>{{creditDetails.valorTotal | currency : 'BRL'}}</strong>
+    </li>
+
+  </ul>
+</div>

@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center pt-5" >
+    <div class="col-3 pt-5">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Solicitar Empréstimo</h1>
+        </div>
+        <app-select-input (itemSelected)="changeCreditType($event)"
+                          [items]="listCreditType"
+                          formControlName="creditType" [id]="'creditType'"
+                          [label]="'Selecione um tipo de Crédito'"></app-select-input>
+        <app-select-input (itemSelected)="changeCreditType($event)"
+                          [items]="listNumInstallments"
+                          formControlName="numInstallments" [id]="'numInstallments'"
+                          [label]="'Selecione o total de Parcelas'"></app-select-input>
+<!--        <app-number-input formControlName="numInstallments" [label]="'Quantidade de parcelas'"></app-number-input>-->
+        <app-datepicker-input (change)="changeExpDay($event)" [id]="'expDay'" (dateSelected)="changeExpDay($event)"  formControlName="expDay" [label]="'Data do primeiro vencimento'"></app-datepicker-input>
+        <div class="form-label-group">
+        <input  class="form-control" currencyMask formControlName="creditValue"  [options]="options"/>
+        </div>
+        <ul class="text-danger list-unstyled" *ngIf="errors">
+            <li *ngFor="let error of errors">
+                {{error}}
+            </li>
+        </ul>
+        <div class="form-label-group py-3">
+        <button class="btn btn-lg btn-success btn-block" type="submit">Enviar Proposta</button>
+        </div>
+      </form>
+    </div>
+  </div>
